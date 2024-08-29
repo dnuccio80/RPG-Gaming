@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,11 +15,6 @@ public class Mover : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            MoveToCursor();
-        }
-
         HandleAnimationsVariables();
     }
 
@@ -32,18 +24,10 @@ public class Mover : MonoBehaviour
         Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
         animator.SetFloat("ForwardSpeed", localVelocity.z);
-
     }
 
-    private void MoveToCursor()
+    public void MoveTo(Vector3 destination)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        bool hasHit = Physics.Raycast(ray, out hit);
-
-        if(hasHit)
-        {
-            playerNavMeshAgent.destination = hit.point;
-        }
+        playerNavMeshAgent.destination = destination;
     }
 }
