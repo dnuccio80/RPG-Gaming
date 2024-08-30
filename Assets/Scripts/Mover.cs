@@ -1,9 +1,11 @@
+using RPG.Combat;
+using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour
+    public class Mover : MonoBehaviour, IAction
     {
         private NavMeshAgent NavMeshAgent;
         private Animator animator;
@@ -28,13 +30,19 @@ namespace RPG.Movement
             animator.SetFloat("ForwardSpeed", localVelocity.z);
         }
 
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<ActionScheduler>().StartAction(this);
+            MoveTo(destination);
+        }
+
         public void MoveTo(Vector3 destination)
         {
             NavMeshAgent.destination = destination;
             NavMeshAgent.isStopped = false;
         }
 
-        public void Stop()
+        public void Cancel()
         {
             NavMeshAgent.isStopped = true;
         }
