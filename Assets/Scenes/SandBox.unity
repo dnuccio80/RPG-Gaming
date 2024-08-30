@@ -1734,28 +1734,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1783644071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1143326789365584121, guid: c82bf391fa227584684c5f2c0b838529,
-    type: 3}
-  m_PrefabInstance: {fileID: 65543696051934608}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &1783644077
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783644071}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 0.5, y: 1, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1001 &1795356879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2263,11 +2241,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1143326789365584121, guid: c82bf391fa227584684c5f2c0b838529,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1783644077}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c82bf391fa227584684c5f2c0b838529, type: 3}
 --- !u!1001 &757622904627027497
 PrefabInstance:
@@ -2389,6 +2363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      propertyPath: timeBetweenAttack
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9073950097849652450, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}

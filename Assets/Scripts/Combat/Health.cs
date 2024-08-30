@@ -1,0 +1,24 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace RPG.Combat
+{
+    public class Health : MonoBehaviour
+    {
+        [SerializeField] private float health = 100;
+
+        public void TakeDamage(float damage)
+        {
+            health = MathF.Max(health - damage, 0);
+            print(health);
+            if (health == 0) Die();
+        }
+
+        private void Die()
+        {
+            print("Ta morido");
+        }
+    }
+}
