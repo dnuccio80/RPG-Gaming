@@ -1,33 +1,42 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Mover : MonoBehaviour
+namespace RPG.Movement
 {
-    private NavMeshAgent playerNavMeshAgent;
-    private Animator animator;
-
-
-    private void Awake()
+    public class Mover : MonoBehaviour
     {
-        playerNavMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
-    }
+        private NavMeshAgent NavMeshAgent;
+        private Animator animator;
 
-    private void Update()
-    {
-        HandleAnimationsVariables();
-    }
 
-    private void HandleAnimationsVariables()
-    {
-        Vector3 velocity = playerNavMeshAgent.velocity;
-        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        private void Awake()
+        {
+            NavMeshAgent = GetComponent<NavMeshAgent>();
+            animator = GetComponentInChildren<Animator>();
+        }
 
-        animator.SetFloat("ForwardSpeed", localVelocity.z);
-    }
+        private void Update()
+        {
+            HandleAnimationsVariables();
+        }
 
-    public void MoveTo(Vector3 destination)
-    {
-        playerNavMeshAgent.destination = destination;
+        private void HandleAnimationsVariables()
+        {
+            Vector3 velocity = NavMeshAgent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+
+            animator.SetFloat("ForwardSpeed", localVelocity.z);
+        }
+
+        public void MoveTo(Vector3 destination)
+        {
+            NavMeshAgent.destination = destination;
+            NavMeshAgent.isStopped = false;
+        }
+
+        public void Stop()
+        {
+            NavMeshAgent.isStopped = true;
+        }
     }
 }
