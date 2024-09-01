@@ -9,8 +9,11 @@ namespace RPG.Combat
     {
         [SerializeField] private float health = 100;
 
+        private bool isDead;
+
         public void TakeDamage(float damage)
         {
+            if(isDead) return;
             health = MathF.Max(health - damage, 0);
             print(health);
             if (health == 0) Die();
@@ -18,7 +21,10 @@ namespace RPG.Combat
 
         private void Die()
         {
-            print("Ta morido");
+            GetComponent<Animator>().SetTrigger(Dictionary.DIE_ANIMATOR);
+            isDead = true;
         }
+
+        public bool IsDead() => isDead;
     }
 }

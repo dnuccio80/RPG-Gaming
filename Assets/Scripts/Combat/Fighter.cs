@@ -23,7 +23,7 @@ namespace RPG.Combat
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-            if (targetTransform == null) return;
+            if (targetTransform == null || targetTransform.GetComponent<Health>().IsDead()) return;
 
             if (!GetIsInRange()) mover.MoveTo(targetTransform.position);
             else
@@ -33,26 +33,40 @@ namespace RPG.Combat
             }
         }
 
+
         private void AttackBehaviour()
         {
-            if(timeSinceLastAttack >= timeBetweenAttack)
+            transform.LookAt(targetTransform);
+
+            if (timeSinceLastAttack >= timeBetweenAttack)
             {
                 // This will trigger the Hit() Event;
-                animator.SetTrigger(Dictionary.ATTACK_ANIMATOR);
+                TriggerAttack();
                 timeSinceLastAttack = 0;
             }
+        }
+
+        private void TriggerAttack()
+        {
+            animator.ResetTrigger(Dictionary.STOP_ATTACK_ANIMATOR);
+            animator.SetTrigger(Dictionary.ATTACK_ANIMATOR);
         }
 
         // Animation Event
         void Hit()
         {
+            if(targetTransform == null) return;
+
             Health healthTarget = targetTransform.GetComponent<Health>();
             healthTarget.TakeDamage(weaponDamage);
         }
 
-        private bool GetIsInRange()
+        private bool GetIsInRange() => Vector3.Distance(transform.position, targetTransform.position) <= weaponRange;
+        public bool CanAttackTarget(CombatTarget combatTarget)
         {
-            return Vector3.Distance(transform.position, targetTransform.position) <= weaponRange;
+            if(combatTarget == null) return false;
+            Health targetHealth = combatTarget.transform.GetComponent<Health>();
+            return targetHealth != null && !targetHealth.IsDead();
         }
 
         public void Attack(CombatTarget target)
@@ -64,8 +78,14 @@ namespace RPG.Combat
         public void Cancel()
         {
             targetTransform = null;
+            StopAttackTrigger();
         }
 
-  
+        private void StopAttackTrigger()
+        {
+            animator.ResetTrigger(Dictionary.ATTACK_ANIMATOR);
+            animator.SetTrigger(Dictionary.STOP_ATTACK_ANIMATOR);
+        }
+
     }
 }
