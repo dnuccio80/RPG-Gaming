@@ -28,6 +28,11 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7366962681330569864, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      propertyPath: m_BaseOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
       propertyPath: weaponRange
@@ -133,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
+  suspicionTime: 5
 --- !u!4 &9185979503888830168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9073950097849652450, guid: 82cf609bd16d794428e25801b84757be,
