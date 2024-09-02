@@ -7,6 +7,9 @@ namespace RPG.Combat
 {
     public class Health : MonoBehaviour
     {
+        public event EventHandler OnDead;
+        
+
         [SerializeField] private float health = 100;
 
         private bool isDead;
@@ -23,6 +26,7 @@ namespace RPG.Combat
         {
             GetComponent<Animator>().SetTrigger(Dictionary.DIE_ANIMATOR);
             isDead = true;
+            OnDead?.Invoke(this, EventArgs.Empty);
         }
 
         public bool IsDead() => isDead;

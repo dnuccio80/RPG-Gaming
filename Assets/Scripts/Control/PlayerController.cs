@@ -9,15 +9,17 @@ namespace RPG.Control
 
         private Mover mover;
         private Fighter fighter;
-
+        private Health health;
         private void Awake()
         {
             mover = GetComponent<Mover>();
+            health = GetComponent<Health>();
             fighter = GetComponent<Fighter>();
         }
 
         private void Update()
         {
+            if (health.IsDead()) return;
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
         }
@@ -29,12 +31,14 @@ namespace RPG.Control
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (!fighter.CanAttackTarget(target)) continue;
+
+                if (target == null || !fighter.CanAttackTarget(target.gameObject)) continue;
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    fighter.Attack(target);
+                    fighter.Attack(target.gameObject);
                 }
+
                 return true;
             }
 

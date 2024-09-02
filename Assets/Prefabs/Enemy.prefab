@@ -23,6 +23,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7366962681330569864, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      propertyPath: weaponRange
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9073950097849652450, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,6 +97,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1141231970442995189}
+    - targetCorrespondingSourceObject: {fileID: 2471632842751085058, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8655211019147459510}
   m_SourcePrefab: {fileID: 100100000, guid: 82cf609bd16d794428e25801b84757be, type: 3}
 --- !u!1 &2367489053306982456 stripped
 GameObject:
@@ -106,6 +120,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12be8e287281544e9f5db807e860215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8655211019147459510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367489053306982456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05a8d4e2dce47e4ca2c7334486e2d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 5
 --- !u!4 &9185979503888830168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9073950097849652450, guid: 82cf609bd16d794428e25801b84757be,

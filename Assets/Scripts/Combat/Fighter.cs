@@ -13,7 +13,7 @@ namespace RPG.Combat
         private Transform targetTransform;
         private Animator animator;
         private Mover mover;
-        private float timeSinceLastAttack;
+        private float timeSinceLastAttack = Mathf.Infinity;
 
         private void Awake()
         {
@@ -62,14 +62,14 @@ namespace RPG.Combat
         }
 
         private bool GetIsInRange() => Vector3.Distance(transform.position, targetTransform.position) <= weaponRange;
-        public bool CanAttackTarget(CombatTarget combatTarget)
+        public bool CanAttackTarget(GameObject target)
         {
-            if(combatTarget == null) return false;
-            Health targetHealth = combatTarget.transform.GetComponent<Health>();
+            if(target == null) return false;
+            Health targetHealth = target.transform.GetComponent<Health>();
             return targetHealth != null && !targetHealth.IsDead();
         }
 
-        public void Attack(CombatTarget target)
+        public void Attack(GameObject target)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             targetTransform = target.transform;
