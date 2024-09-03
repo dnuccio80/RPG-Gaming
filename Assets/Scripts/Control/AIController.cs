@@ -15,6 +15,7 @@ namespace RPG.Control
         [SerializeField] private float chaseDistance = 5f;
         [SerializeField] private float suspicionTime = 3f;
         [SerializeField] private PatrolPath patrolPath;
+        [SerializeField] private float waypointDwellTime = 3f;
 
         GameObject player;
 
@@ -26,8 +27,7 @@ namespace RPG.Control
         private Vector3 currentWaypoint;
         private float timeSinceLastSawTarget;
         private float waypointTolerance = 1f;
-        private float guardianTimer;
-        private float guardianTimerMax = 3f;
+        private float timeInWaypoint;
         private bool AtPlace = false;
 
         private void Awake()
@@ -83,11 +83,10 @@ namespace RPG.Control
 
                 if (AtWaypoint())
                 {
-                    guardianTimer += Time.deltaTime;
-                    if(guardianTimer > guardianTimerMax) CycleWaypoint();
+                    timeInWaypoint += Time.deltaTime;
+                    if(timeInWaypoint > waypointDwellTime) CycleWaypoint();
                 }
                 nextPosition = GetCurrentWayPoint();
-                mover.MoveTo(currentWaypoint);
             }
             mover.StartMoveAction(nextPosition);
         }
@@ -101,7 +100,7 @@ namespace RPG.Control
         private void CycleWaypoint()
         {
             currentWaypoint = patrolPath.GetNextWaypoint();
-            guardianTimer = 0;
+            timeInWaypoint = 0;
         }
 
         private bool AtWaypoint()
