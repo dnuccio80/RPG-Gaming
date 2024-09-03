@@ -304,6 +304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8655211019147459510, guid: 61e485a2f6c80564d82c7a462fcb362d,
         type: 3}
+      propertyPath: patrolPath
+      value: 
+      objectReference: {fileID: 865562411}
+    - target: {fileID: 8655211019147459510, guid: 61e485a2f6c80564d82c7a462fcb362d,
+        type: 3}
       propertyPath: suspitionTime
       value: 3
       objectReference: {fileID: 0}
@@ -2645,7 +2650,7 @@ Transform:
   m_GameObject: {fileID: 2097618973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.73, y: 0.58, z: 5.13}
+  m_LocalPosition: {x: -4.67, y: 0.58, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

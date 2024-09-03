@@ -9,6 +9,8 @@ namespace RPG.Control
 
         [SerializeField] private float sphereRadius = 2f;
 
+        int nextWaypointIndex;
+
         private void OnDrawGizmos()
         {
             for (int i = 0; i < transform.childCount; i++)
@@ -27,5 +29,12 @@ namespace RPG.Control
         {
             return transform.GetChild(i).position;
         }
+
+        public Vector3 GetNextWaypoint()
+        {
+            nextWaypointIndex = (nextWaypointIndex + 1) % transform.childCount;
+            return transform.GetChild(nextWaypointIndex).position;
+        }
+        
     }
 }

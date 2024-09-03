@@ -1,6 +1,7 @@
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace RPG.Control
 
         [SerializeField] private float chaseDistance = 5f;
         [SerializeField] private float suspicionTime = 3f;
+        [SerializeField] private PatrolPath patrolPath;
 
         GameObject player;
 
@@ -21,8 +23,12 @@ namespace RPG.Control
         private ActionScheduler actionScheduler;
         private Mover mover;
         private Vector3 guardianPosition;
+        private Vector3 currentWaypoint;
         private float timeSinceLastSawTarget;
-
+        private float waypointTolerance = 1f;
+        private float guardianTimer;
+        private float guardianTimerMax = 3f;
+        private bool AtPlace = false;
 
         private void Awake()
         {
@@ -61,25 +67,59 @@ namespace RPG.Control
             }
             else
             {
-                GuardBehaviour();
+                PatrolBehaviour();
             }
 
             timeSinceLastSawTarget += Time.deltaTime;
+        
         }
 
-        private void GuardBehaviour()
+        private void PatrolBehaviour()
         {
-            mover.StartMoveAction(guardianPosition);
+            Vector3 nextPosition = guardianPosition;
+            
+            if (patrolPath != null)
+            {
+
+                if (AtWaypoint())
+                {
+                    guardianTimer += Time.deltaTime;
+                    if(guardianTimer > guardianTimerMax) CycleWaypoint();
+                }
+                nextPosition = GetCurrentWayPoint();
+                mover.MoveTo(currentWaypoint);
+            }
+            mover.StartMoveAction(nextPosition);
+        }
+
+        private Vector3 GetCurrentWayPoint()
+        {
+            if (currentWaypoint == Vector3.zero) CycleWaypoint();
+            return currentWaypoint;
+        }
+
+        private void CycleWaypoint()
+        {
+            currentWaypoint = patrolPath.GetNextWaypoint();
+            guardianTimer = 0;
+        }
+
+        private bool AtWaypoint()
+        {
+            float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWayPoint());
+            return distanceToWaypoint < waypointTolerance;
         }
 
         private void SuspicionState()
         {
             actionScheduler.CancelCurrentAction();
+
         }
 
         private void AttackBehaviour()
         {
             fighter.Attack(player);
+
         }
 
         private bool InAttackRange(GameObject target)
