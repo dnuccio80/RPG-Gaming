@@ -18,7 +18,6 @@ namespace RPG.Combat
         {
             if(isDead) return;
             health = MathF.Max(health - damage, 0);
-            print(health);
             if (health == 0) Die();
         }
 

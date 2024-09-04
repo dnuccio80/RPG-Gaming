@@ -9,6 +9,8 @@ namespace RPG.Combat
         [SerializeField] private float weaponRange = 2f;
         [SerializeField] private float timeBetweenAttack = 1.5f;
         [SerializeField] private float weaponDamage = 5f;
+        [Range(0,1)]
+        [SerializeField] private float attackFractionSpeed = 1f;
 
         private Transform targetTransform;
         private Animator animator;
@@ -25,7 +27,7 @@ namespace RPG.Combat
             timeSinceLastAttack += Time.deltaTime;
             if (targetTransform == null || targetTransform.GetComponent<Health>().IsDead()) return;
 
-            if (!GetIsInRange()) mover.MoveTo(targetTransform.position);
+            if (!GetIsInRange()) mover.MoveTo(targetTransform.position, attackFractionSpeed);
             else
             {
                 mover.Cancel();

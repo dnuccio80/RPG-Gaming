@@ -16,6 +16,8 @@ namespace RPG.Control
         [SerializeField] private float suspicionTime = 3f;
         [SerializeField] private PatrolPath patrolPath;
         [SerializeField] private float waypointDwellTime = 3f;
+        [Range(0,1)]
+        [SerializeField] private float patrolSpeedFraction = 0.2f;
 
         GameObject player;
 
@@ -77,7 +79,6 @@ namespace RPG.Control
         private void PatrolBehaviour()
         {
             Vector3 nextPosition = guardianPosition;
-            
             if (patrolPath != null)
             {
 
@@ -88,7 +89,7 @@ namespace RPG.Control
                 }
                 nextPosition = GetCurrentWayPoint();
             }
-            mover.StartMoveAction(nextPosition);
+            mover.StartMoveAction(nextPosition, patrolSpeedFraction);
         }
 
         private Vector3 GetCurrentWayPoint()
@@ -118,7 +119,6 @@ namespace RPG.Control
         private void AttackBehaviour()
         {
             fighter.Attack(player);
-
         }
 
         private bool InAttackRange(GameObject target)
