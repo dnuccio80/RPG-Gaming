@@ -80,6 +80,7 @@ namespace RPG.Combat
         public void Cancel()
         {
             targetTransform = null;
+            mover.Cancel();
             StopAttackTrigger();
         }
 
