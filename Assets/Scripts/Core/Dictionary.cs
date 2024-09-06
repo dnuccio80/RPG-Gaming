@@ -8,4 +8,10 @@ public static class Dictionary
     public const string DIE_ANIMATOR = "Die";
     public const string STOP_ATTACK_ANIMATOR = "StopAttack";
     public const string PLAYER_TAG = "Player";
+
+    public enum Scenes
+    {
+        SandBox,
+        SandBox2,
+    }
 }
