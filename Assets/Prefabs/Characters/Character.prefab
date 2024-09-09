@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 104752939664593344}
   - component: {fileID: -2822389541958808268}
   - component: {fileID: 9114889700396445124}
+  - component: {fileID: 5461824460372509516}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9948d912f8a66ba4a93b46a4aae73e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 6
 --- !u!95 &6180747445897352590
 Animator:
   serializedVersion: 5
@@ -149,9 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323601de08f64274c9b5c6e80313b962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponRange: 2
+  weaponRange: 1.5
   timeBetweenAttack: 1.5
   weaponDamage: 5
+  attackFractionSpeed: 1
 --- !u!114 &104752939664593344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +203,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &5461824460372509516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471632842751085058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985d39155a476334f830db8a8fded961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7188952199518707433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,6 +267,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13707166, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f6fc0cf5e5d31c458bc74ede87cb8ae, type: 2}
     m_RemovedComponents:
     - {fileID: 9505156, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
     m_RemovedGameObjects: []

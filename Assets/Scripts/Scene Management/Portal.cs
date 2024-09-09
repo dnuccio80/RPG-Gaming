@@ -31,14 +31,24 @@ namespace RPG.SceneManagement
         {
             DontDestroyOnLoad(gameObject);
             Fader fader = FindAnyObjectByType<Fader>();
-            GameObject.FindGameObjectWithTag(Dictionary.PLAYER_TAG).GetComponent<PlayerController>().enabled = false;
+            DisablePlayerController();
             yield return fader.FadeOut(0.5f);
             yield return SceneManager.LoadSceneAsync(targetScene.ToString());
             Portal scenePortal = GetScenePortal();
             UpdatePlayer(scenePortal);
             yield return fader.FadeIn(0.5f);
-            GameObject.FindGameObjectWithTag(Dictionary.PLAYER_TAG).GetComponent<PlayerController>().enabled = true;
+            EnablePlayerController();
             Destroy(gameObject);
+        }
+
+        private static void EnablePlayerController()
+        {
+            GameObject.FindGameObjectWithTag(Dictionary.PLAYER_TAG).GetComponent<PlayerController>().enabled = true;
+        }
+
+        private static void DisablePlayerController()
+        {
+            GameObject.FindGameObjectWithTag(Dictionary.PLAYER_TAG).GetComponent<PlayerController>().enabled = false;
         }
 
         private Portal GetScenePortal()

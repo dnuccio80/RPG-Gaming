@@ -1,5 +1,6 @@
 using RPG.Core;
 using RPG.Movement;
+using System;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -11,6 +12,8 @@ namespace RPG.Combat
         [SerializeField] private float weaponDamage = 5f;
         [Range(0,1)]
         [SerializeField] private float attackFractionSpeed = 1f;
+        [SerializeField] private Transform weaponSpawnerTransform;
+        [SerializeField] private WeaponSO weaponSO;
 
         private Transform targetTransform;
         private Animator animator;
@@ -22,6 +25,12 @@ namespace RPG.Combat
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();
         }
+
+        private void Start()
+        {
+            SpawnWeapon();
+        }
+
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
@@ -52,6 +61,12 @@ namespace RPG.Combat
         {
             animator.ResetTrigger(Dictionary.STOP_ATTACK_ANIMATOR);
             animator.SetTrigger(Dictionary.ATTACK_ANIMATOR);
+        }
+
+        private void SpawnWeapon()
+        {
+            if (weaponSO == null) return;
+            weaponSO.Spawn(weaponSpawnerTransform, animator);
         }
 
         // Animation Event
