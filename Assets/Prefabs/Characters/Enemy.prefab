@@ -35,9 +35,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
+      propertyPath: weaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: dd10948979c32394c86110958f77f5a6,
+        type: 2}
+    - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
       propertyPath: weaponRange
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      propertyPath: defaultWeaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: dd10948979c32394c86110958f77f5a6,
+        type: 2}
     - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
       propertyPath: attackFractionSpeed

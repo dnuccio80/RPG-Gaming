@@ -7,18 +7,17 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] private float weaponRange = 2f;
         [SerializeField] private float timeBetweenAttack = 1.5f;
-        [SerializeField] private float weaponDamage = 5f;
         [Range(0,1)]
         [SerializeField] private float attackFractionSpeed = 1f;
         [SerializeField] private Transform weaponSpawnerTransform;
-        [SerializeField] private WeaponSO weaponSO;
+        [SerializeField] private WeaponSO defaultWeaponSO;
 
         private Transform targetTransform;
         private Animator animator;
         private Mover mover;
         private float timeSinceLastAttack = Mathf.Infinity;
+        private WeaponSO currentWeapon;
 
         private void Awake()
         {
@@ -28,7 +27,7 @@ namespace RPG.Combat
 
         private void Start()
         {
-            SpawnWeapon();
+            EquipWeapon(defaultWeaponSO);
         }
 
         private void Update()
@@ -63,10 +62,10 @@ namespace RPG.Combat
             animator.SetTrigger(Dictionary.ATTACK_ANIMATOR);
         }
 
-        private void SpawnWeapon()
+        private void EquipWeapon(WeaponSO weaponSO)
         {
-            if (weaponSO == null) return;
-            weaponSO.Spawn(weaponSpawnerTransform, animator);
+            currentWeapon = weaponSO;
+            currentWeapon.Spawn(weaponSpawnerTransform, animator);
         }
 
         // Animation Event
@@ -75,10 +74,10 @@ namespace RPG.Combat
             if(targetTransform == null) return;
 
             Health healthTarget = targetTransform.GetComponent<Health>();
-            healthTarget.TakeDamage(weaponDamage);
+            healthTarget.TakeDamage(currentWeapon.WeaponDamage);
         }
 
-        private bool GetIsInRange() => Vector3.Distance(transform.position, targetTransform.position) <= weaponRange;
+        private bool GetIsInRange() => Vector3.Distance(transform.position, targetTransform.position) <= currentWeapon.WeaponRange;
         public bool CanAttackTarget(GameObject target)
         {
             if(target == null) return false;

@@ -19,8 +19,8 @@ namespace RPG.Combat
 
         public void Spawn(Transform handTransform, Animator animator)
         {
-            Instantiate(weaponPrefab, handTransform);
-            animator.runtimeAnimatorController = weaponOverrideController;
+            if(weaponPrefab != null) Instantiate(weaponPrefab, handTransform);
+            if(weaponOverrideController != null) animator.runtimeAnimatorController = weaponOverrideController;
         }
     }
 }

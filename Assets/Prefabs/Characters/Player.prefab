@@ -52,6 +52,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
+      propertyPath: defaultWeaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: dd10948979c32394c86110958f77f5a6,
+        type: 2}
+    - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
       propertyPath: weaponSpawnerTransform
       value: 
       objectReference: {fileID: 7216456221196068130}
