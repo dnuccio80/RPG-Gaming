@@ -62,7 +62,7 @@ namespace RPG.Combat
             animator.SetTrigger(Dictionary.ATTACK_ANIMATOR);
         }
 
-        private void EquipWeapon(WeaponSO weaponSO)
+        public void EquipWeapon(WeaponSO weaponSO)
         {
             currentWeapon = weaponSO;
             currentWeapon.Spawn(weaponSpawnerTransform, animator);
