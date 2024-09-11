@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2471632842751085058, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6801622041153706250, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
       propertyPath: m_Enabled
@@ -106,7 +111,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8671292778270894799, guid: 82cf609bd16d794428e25801b84757be, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects:
     - {fileID: 7188952199518598539, guid: 82cf609bd16d794428e25801b84757be, type: 3}
     m_AddedGameObjects:
