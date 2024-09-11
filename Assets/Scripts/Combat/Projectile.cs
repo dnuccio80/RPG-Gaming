@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -8,6 +6,8 @@ namespace RPG.Combat
     {
         [SerializeField] private float speed;
         [SerializeField] private Transform target;
+
+        private float damage;
 
         private void Update()
         {
@@ -25,6 +25,21 @@ namespace RPG.Combat
             return target.position + Vector3.up * targetCapsule.height / 2;
         }
 
+        public void SetTarget(Transform target)
+        {
+            this.target = target;
+        }
+
+        public void SetDamage(float damage) { this.damage = damage; }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject == this.target.gameObject)
+            {
+                target.GetComponent<Health>().TakeDamage(damage);
+                Destroy(gameObject);
+            }
+        }
 
     }
 }

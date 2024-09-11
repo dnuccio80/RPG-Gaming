@@ -65,9 +65,17 @@ namespace RPG.Combat
 
         public void EquipWeapon(WeaponSO weaponSO)
         {
+
+
+            currentWeapon = weaponSO;
+            currentWeapon.Spawn(GetHandTransform(weaponSO), animator);
+        }
+
+        private Transform GetHandTransform(WeaponSO weaponSO)
+        {
             Transform handTransform = null;
 
-            switch(weaponSO.HandType)
+            switch (weaponSO.HandType)
             {
                 case WeaponSO.WeaponHandType.leftHanded:
                     handTransform = leftHandTransform; break;
@@ -75,8 +83,7 @@ namespace RPG.Combat
                     handTransform = rightHandTransform; break;
             }
 
-            currentWeapon = weaponSO;
-            currentWeapon.Spawn(handTransform, animator);
+            return handTransform;
         }
 
         // Animation Event
@@ -84,8 +91,20 @@ namespace RPG.Combat
         {
             if(targetTransform == null) return;
 
-            Health healthTarget = targetTransform.GetComponent<Health>();
-            healthTarget.TakeDamage(currentWeapon.WeaponDamage);
+            if(currentWeapon.HasProjectile())
+            {
+                currentWeapon.LaunchProjectile(GetHandTransform(currentWeapon), targetTransform);
+            } else
+            {
+                Health healthTarget = targetTransform.GetComponent<Health>();
+                healthTarget.TakeDamage(currentWeapon.WeaponDamage);
+            }            
+        }
+
+        // Animation Event
+        void Shoot()
+        {
+            Hit();
         }
 
         private bool GetIsInRange() => Vector3.Distance(transform.position, targetTransform.position) <= currentWeapon.WeaponRange;
