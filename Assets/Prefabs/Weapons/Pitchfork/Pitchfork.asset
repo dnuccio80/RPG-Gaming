@@ -17,3 +17,4 @@ MonoBehaviour:
   weaponOverrideController: {fileID: 0}
   weaponPrefab: {fileID: 7815798988223139432, guid: 8e9f0cf6f58a5aa419691636cb862750,
     type: 3}
+  handType: 1

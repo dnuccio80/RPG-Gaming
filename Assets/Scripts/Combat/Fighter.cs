@@ -10,7 +10,8 @@ namespace RPG.Combat
         [SerializeField] private float timeBetweenAttack = 1.5f;
         [Range(0,1)]
         [SerializeField] private float attackFractionSpeed = 1f;
-        [SerializeField] private Transform weaponSpawnerTransform;
+        [SerializeField] private Transform rightHandTransform;
+        [SerializeField] private Transform leftHandTransform;
         [SerializeField] private WeaponSO defaultWeaponSO;
 
         private Transform targetTransform;
@@ -64,8 +65,18 @@ namespace RPG.Combat
 
         public void EquipWeapon(WeaponSO weaponSO)
         {
+            Transform handTransform = null;
+
+            switch(weaponSO.HandType)
+            {
+                case WeaponSO.WeaponHandType.leftHanded:
+                    handTransform = leftHandTransform; break;
+                case WeaponSO.WeaponHandType.rightHanded:
+                    handTransform = rightHandTransform; break;
+            }
+
             currentWeapon = weaponSO;
-            currentWeapon.Spawn(weaponSpawnerTransform, animator);
+            currentWeapon.Spawn(handTransform, animator);
         }
 
         // Animation Event

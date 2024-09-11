@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponRange: 10
   weaponDamage: 8
-  weaponOverrideController: {fileID: 0}
+  weaponOverrideController: {fileID: 22100000, guid: 58a46ad741f1a104dbd386db5b6fa39d,
+    type: 2}
   weaponPrefab: {fileID: 7938622339065712753, guid: 66272e0c8d3015a468fdeb43af5240ac,
     type: 3}
+  handType: 0

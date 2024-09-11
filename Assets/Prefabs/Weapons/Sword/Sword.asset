@@ -18,3 +18,4 @@ MonoBehaviour:
     type: 2}
   weaponPrefab: {fileID: 8570766728388609149, guid: 41bfcc4224083e14d83c64a961395aff,
     type: 3}
+  handType: 1
