@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb93d936dd91844cabc1dcad06e70e5, type: 3}
-  m_Name: Simple Bow
+  m_Name: Enemy Simple Bow
   m_EditorClassIdentifier: 
   weaponRange: 10
   weaponDamage: 10
@@ -19,5 +19,5 @@ MonoBehaviour:
   weaponPrefab: {fileID: 7938622339065712753, guid: 66272e0c8d3015a468fdeb43af5240ac,
     type: 3}
   handType: 0
-  projectile: {fileID: 440077162262409099, guid: 7fc10ee931af6c54fbf2f3ec3d36aa40,
+  projectile: {fileID: 3094454961727827953, guid: 3367c6beb5d62274f83c58e5b9e49072,
     type: 3}
