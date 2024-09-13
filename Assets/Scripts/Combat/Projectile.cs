@@ -41,6 +41,9 @@ namespace RPG.Combat
 
         private void OnTriggerEnter(Collider other)
         {
+
+            if (other.gameObject.CompareTag(Dictionary.WEAPON_TAG)) return;
+
             if (other.gameObject.TryGetComponent(out Health targetHealth))
             {
                 if (targetHealth.IsDead()) return;
