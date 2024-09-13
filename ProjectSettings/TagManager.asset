@@ -9,6 +9,7 @@ TagManager:
   - pyramid
   - plane
   - PickUp Object
+  - Projectile
   layers:
   - Default
   - TransparentFX

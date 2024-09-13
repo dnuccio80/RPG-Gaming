@@ -167,8 +167,8 @@ GameObject:
   - component: {fileID: 3716208248420183013}
   - component: {fileID: 5463895462805272450}
   m_Layer: 0
-  m_Name: Root Arrow Projectile
-  m_TagString: Untagged
+  m_Name: _Root Arrow Projectile
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,6 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   target: {fileID: 0}
+  explosionPrefab: {fileID: 1845955007268882, guid: 6fd05e68cf71e6e44b6e28f9449782a3,
+    type: 3}
   isHoming: 0
 --- !u!54 &3716208248420183013
 Rigidbody:

@@ -13,6 +13,12 @@ PrefabInstance:
       propertyPath: isHoming
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 440077162262409099, guid: 7fc10ee931af6c54fbf2f3ec3d36aa40,
+        type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 2101640932901661862, guid: 8a1eebad79f83e64998ba5e42a9f9ca7,
+        type: 3}
     - target: {fileID: 4954815438158461682, guid: 7fc10ee931af6c54fbf2f3ec3d36aa40,
         type: 3}
       propertyPath: m_LocalPosition.x

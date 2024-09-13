@@ -6,6 +6,7 @@ namespace RPG.Combat
     {
         [SerializeField] private float speed;
         [SerializeField] private Transform target;
+        [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private bool isHoming;
         private float damage;
 
@@ -43,17 +44,25 @@ namespace RPG.Combat
         {
 
             if (other.gameObject.CompareTag(Dictionary.WEAPON_TAG)) return;
+            if (other.gameObject.CompareTag(Dictionary.PROJECTILE_TAG)) return;
 
             if (other.gameObject.TryGetComponent(out Health targetHealth))
             {
                 if (targetHealth.IsDead()) return;
                 targetHealth.TakeDamage(damage);
-                Destroy(gameObject);
+                ExplodeObject();
             } else
             {
-                Destroy(gameObject);
+                ExplodeObject();
             }
 
+        }
+
+        private void ExplodeObject()
+        {
+            GameObject explosionGO = Instantiate(explosionPrefab, transform.position, transform.rotation);
+            Destroy(explosionGO, 1f);
+            Destroy(gameObject);
         }
 
     }
