@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSO: {fileID: 11400000, guid: dd10948979c32394c86110958f77f5a6, type: 2}
+  timeHiding: 5
 --- !u!54 &8375446780458931529
 Rigidbody:
   m_ObjectHideFlags: 0

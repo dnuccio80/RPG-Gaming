@@ -8,12 +8,14 @@ namespace RPG.Combat
         [SerializeField] private Transform target;
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private bool isHoming;
+        [SerializeField] private float maxTimeLife = 10f;
         private float damage;
 
 
         private void Start()
         {
             transform.LookAt(GetAimLocation());
+            Destroy(gameObject, maxTimeLife);
         }
 
         private void Update()

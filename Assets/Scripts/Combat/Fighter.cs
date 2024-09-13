@@ -28,7 +28,8 @@ namespace RPG.Combat
 
         private void Start()
         {
-            EquipWeapon(defaultWeaponSO);
+            WeaponSO weapon = Resources.Load<WeaponSO>("Unarmed");
+            EquipWeapon(weapon);
         }
 
         private void Update()

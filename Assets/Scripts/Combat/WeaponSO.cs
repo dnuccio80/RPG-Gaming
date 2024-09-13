@@ -30,7 +30,15 @@ namespace RPG.Combat
         public void Spawn(Transform handTransform, Animator animator)
         {
             if(weaponPrefab != null) Instantiate(weaponPrefab, handTransform);
+
+            var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
+
             if(weaponOverrideController != null) animator.runtimeAnimatorController = weaponOverrideController;
+            else if (overrideController != null)
+            {
+                animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
+            }
+
         }
 
         public void DestroyOldWeapon(Transform handTransform)
