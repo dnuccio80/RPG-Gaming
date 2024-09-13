@@ -6,14 +6,21 @@ namespace RPG.Combat
     {
         [SerializeField] private float speed;
         [SerializeField] private Transform target;
-
+        [SerializeField] private bool isHoming;
         private float damage;
+
+
+        private void Start()
+        {
+            transform.LookAt(GetAimLocation());
+        }
 
         private void Update()
         {
             if (target == null) return;
 
-            transform.LookAt(GetAimLocation());
+            if (isHoming && !target.GetComponent<Health>().IsDead()) transform.LookAt(GetAimLocation());
+
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
@@ -34,11 +41,16 @@ namespace RPG.Combat
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject == this.target.gameObject)
+            if (other.gameObject.TryGetComponent(out Health targetHealth))
             {
-                target.GetComponent<Health>().TakeDamage(damage);
+                if (targetHealth.IsDead()) return;
+                targetHealth.TakeDamage(damage);
+                Destroy(gameObject);
+            } else
+            {
                 Destroy(gameObject);
             }
+
         }
 
     }

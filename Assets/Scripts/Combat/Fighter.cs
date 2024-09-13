@@ -65,7 +65,10 @@ namespace RPG.Combat
 
         public void EquipWeapon(WeaponSO weaponSO)
         {
-
+            if(currentWeapon != null)
+            {
+                currentWeapon.DestroyOldWeapon(GetHandTransform(currentWeapon));
+            }
 
             currentWeapon = weaponSO;
             currentWeapon.Spawn(GetHandTransform(weaponSO), animator);

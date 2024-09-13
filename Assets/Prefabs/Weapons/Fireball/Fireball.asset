@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb93d936dd91844cabc1dcad06e70e5, type: 3}
-  m_Name: Player Simple Bow
+  m_Name: Fireball
   m_EditorClassIdentifier: 
   weaponRange: 20
-  weaponDamage: 10
-  weaponOverrideController: {fileID: 22100000, guid: 58a46ad741f1a104dbd386db5b6fa39d,
+  weaponDamage: 8
+  weaponOverrideController: {fileID: 22100000, guid: eaf517adfa256114f8889033fbe02253,
     type: 2}
-  weaponPrefab: {fileID: 7938622339065712753, guid: 66272e0c8d3015a468fdeb43af5240ac,
-    type: 3}
+  weaponPrefab: {fileID: 0}
   handType: 0
-  projectile: {fileID: 3746221859303711506, guid: 51f1a84d2c611e64ca53b94c20862efc,
+  projectile: {fileID: 440077162262409099, guid: 3b305d488f82a7540ad59d9ecdadb340,
     type: 3}

@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -30,6 +31,19 @@ namespace RPG.Combat
         {
             if(weaponPrefab != null) Instantiate(weaponPrefab, handTransform);
             if(weaponOverrideController != null) animator.runtimeAnimatorController = weaponOverrideController;
+        }
+
+        public void DestroyOldWeapon(Transform handTransform)
+        {
+
+            if (handTransform.childCount == 0) return; 
+                
+            Transform oldWeapon = handTransform.GetChild(0);
+
+            if (oldWeapon == null) return;
+
+            Destroy(oldWeapon.gameObject);
+
         }
 
         public void LaunchProjectile(Transform handTransform, Transform target)
