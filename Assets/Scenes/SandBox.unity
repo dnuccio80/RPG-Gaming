@@ -4467,6 +4467,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 112.03937
       objectReference: {fileID: 0}
+    - target: {fileID: 3324236965477606582, guid: 25a48e8a67b55fc4b9889d1b81cbf389,
+        type: 3}
+      propertyPath: startingLevel
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4882715575942198860, guid: 25a48e8a67b55fc4b9889d1b81cbf389,
         type: 3}
       propertyPath: weaponSO

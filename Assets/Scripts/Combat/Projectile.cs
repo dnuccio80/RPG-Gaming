@@ -1,3 +1,4 @@
+using RPG.Resources;
 using UnityEngine;
 
 namespace RPG.Combat

@@ -1,5 +1,6 @@
 using RPG.Core;
 using RPG.Movement;
+using RPG.Resources;
 using System;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
+
         [SerializeField] private float timeBetweenAttack = 1.5f;
         [Range(0,1)]
         [SerializeField] private float attackFractionSpeed = 1f;
@@ -28,8 +30,10 @@ namespace RPG.Combat
 
         private void Start()
         {
-            WeaponSO weapon = Resources.Load<WeaponSO>("Unarmed");
-            EquipWeapon(weapon);
+            //WeaponSO weapon = Resources.Load<WeaponSO>("Unarmed");
+            //EquipWeapon(weapon);
+            EquipWeapon(defaultWeaponSO);
+
         }
 
         private void Update()
@@ -137,6 +141,9 @@ namespace RPG.Combat
             animator.ResetTrigger(Dictionary.ATTACK_ANIMATOR);
             animator.SetTrigger(Dictionary.STOP_ATTACK_ANIMATOR);
         }
+
+        public bool HasTarget() => targetTransform != null;
+        public Health GetTargetHealth() => targetTransform.GetComponent<Health>();
 
     }
 }

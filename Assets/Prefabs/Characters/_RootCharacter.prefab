@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 104752939664593344}
   - component: {fileID: -2822389541958808268}
   - component: {fileID: 9114889700396445124}
+  - component: {fileID: -8671809423702137864}
   m_Layer: 0
-  m_Name: Character
+  m_Name: _RootCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6ea8919f80e3945a4568e65d0c86ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  healthPoints: 100
 --- !u!136 &9114889700396445124
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -203,6 +204,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-8671809423702137864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471632842751085058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef25770783f3744e915a6eff45e5ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLevel: 1
+  characterClass: 0
+  progressionSO: {fileID: 11400000, guid: 5fb7d3565ae93494bbeb5ed13668a2fc, type: 2}
 --- !u!1 &4648779892814452708
 GameObject:
   m_ObjectHideFlags: 0
