@@ -18,6 +18,12 @@ MonoBehaviour:
     - 40
     - 80
     damage: []
+    rewardExperience:
+    - 10
+    - 20
+    - 30
+    - 40
+    - 50
   - characterClass: 1
     health:
     - 20
@@ -26,13 +32,21 @@ MonoBehaviour:
     - 400
     - 700
     damage: []
+    rewardExperience: []
   - characterClass: 2
     health:
     - 50
     - 100
     damage: []
+    rewardExperience: []
   - characterClass: 3
     health:
     - 40
     - 80
     damage: []
+    rewardExperience:
+    - 30
+    - 60
+    - 90
+    - 120
+    - 150

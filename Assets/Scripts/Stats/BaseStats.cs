@@ -16,7 +16,7 @@ namespace RPG.Stats
 
         public float GetAwardExperience()
         {
-            return 10;
+            return progressionSO.GetExperienceAward(characterClass, startingLevel);
         }
 
     }
