@@ -1,3 +1,4 @@
+using RPG.Combat;
 using RPG.Stats;
 using System;
 using UnityEngine;
@@ -22,19 +23,26 @@ namespace RPG.Resources
         }
 
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(GameObject instigator, float damage)
         {
             if(isDead) return;
             healthPoints = MathF.Max(healthPoints - damage, 0);
             OnHealthUpdated?.Invoke(this, EventArgs.Empty);
-            if (healthPoints == 0) Die();
+            if (healthPoints == 0) Die(instigator);
         }
 
-        private void Die()
+        private void Die(GameObject instigator)
         {
             GetComponent<Animator>().SetTrigger(Dictionary.DIE_ANIMATOR);
             isDead = true;
+            GetComponent<Fighter>().Cancel();
             OnDead?.Invoke(this, EventArgs.Empty);
+
+            if (instigator.CompareTag(Dictionary.PLAYER_TAG))
+            {
+                instigator.GetComponent<Experience>().GainExperience(baseStats.GetAwardExperience());
+            } 
+           
         }
 
         public bool IsDead() => isDead;

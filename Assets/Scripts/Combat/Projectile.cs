@@ -10,8 +10,9 @@ namespace RPG.Combat
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private bool isHoming;
         [SerializeField] private float maxTimeLife = 10f;
+        
         private float damage;
-
+        private GameObject instigator;
 
         private void Start()
         {
@@ -41,6 +42,8 @@ namespace RPG.Combat
             this.target = target;
         }
 
+        public GameObject SetInstigator(GameObject instigator) => this.instigator = instigator; 
+
         public void SetDamage(float damage) { this.damage = damage; }
 
         private void OnTriggerEnter(Collider other)
@@ -52,7 +55,7 @@ namespace RPG.Combat
             if (other.gameObject.TryGetComponent(out Health targetHealth))
             {
                 if (targetHealth.IsDead()) return;
-                targetHealth.TakeDamage(damage);
+                targetHealth.TakeDamage(instigator, damage);
                 ExplodeObject();
             } else
             {
