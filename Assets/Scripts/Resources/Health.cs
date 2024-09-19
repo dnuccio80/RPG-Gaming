@@ -40,13 +40,13 @@ namespace RPG.Resources
 
             if (instigator.CompareTag(Dictionary.PLAYER_TAG))
             {
-                instigator.GetComponent<Experience>().GainExperience(baseStats.GetAwardExperience());
+                instigator.GetComponent<Experience>().GainExperience(baseStats.GetStat(Stat.ExperienceReward));
             } 
            
         }
 
         public bool IsDead() => isDead;
-        private float GetBaseHealthPoints() => baseStats.GetHealth();
+        private float GetBaseHealthPoints() => baseStats.GetStat(Stat.Health);
         public float GetPercentage() => Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints());
       
 

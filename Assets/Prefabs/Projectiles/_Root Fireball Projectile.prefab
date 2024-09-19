@@ -47,11 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796891b6bce17a94d92b47818fbc904b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 11
   target: {fileID: 0}
   explosionPrefab: {fileID: 160852521275798431, guid: 75bbef7aa8f6ee741a6f046f801ce981,
     type: 3}
   isHoming: 0
+  maxTimeLife: 10
 --- !u!54 &3716208248420183013
 Rigidbody:
   m_ObjectHideFlags: 0
