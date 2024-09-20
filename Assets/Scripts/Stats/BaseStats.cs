@@ -1,17 +1,51 @@
+using System;
 using UnityEngine;
 
 namespace RPG.Stats
 {
     public class BaseStats : MonoBehaviour
     {
+
+
         [Range(1,99)]
         [SerializeField] private int startingLevel = 1;
         [SerializeField] private CharacterClass characterClass;
         [SerializeField] private ProgressionSO progressionSO;
 
+        int currentLevel;
+
+        private void Start()
+        {
+            currentLevel = GetLevel();
+        }
+
         public float GetStat(Stat stat)
         {
-            return progressionSO.GetStat(stat, characterClass, startingLevel);
+            return progressionSO.GetStat(stat, characterClass, GetLevel());
+        }
+
+        public int GetLevel()
+        {
+
+            Experience experience = GetComponent<Experience>();
+
+            if (experience == null) return startingLevel;
+
+            float currentXP = experience.GetExperience();
+            int penultimateLevel = progressionSO.GetLevels(Stat.ExperienceToLevelUp, characterClass);
+
+            for (int level = 1; level <= penultimateLevel; level++)
+            {
+                float xpToLevelUp = progressionSO.GetStat(Stat.ExperienceToLevelUp, characterClass, level);
+                if(xpToLevelUp > currentXP)
+                {
+
+                    return level;
+                }
+            }
+
+            return penultimateLevel + 1;
+
         }
 
     }

@@ -12,23 +12,43 @@ namespace RPG.Stats
 
         [SerializeField] private CharacterClassProgression[] characterClassesProgression;
 
+        Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable;
+
         public float GetStat(Stat stat, CharacterClass characterClass, int level)
         {
+            BuildLookup();
+
+            float[] levels = lookupTable[characterClass][stat];
+
+            if (levels.Length < level) return 0;
+
+            return levels[level - 1];
+        }
+
+        public int GetLevels(Stat stat, CharacterClass characterClass)
+        {
+            float[] levels = lookupTable[characterClass][stat];
+            return levels.Length;
+        }
+
+
+        private void BuildLookup()
+        {
+            if (lookupTable != null) return;
+
+            lookupTable = new Dictionary<CharacterClass, Dictionary<Stat, float[]>>();
+
             foreach(CharacterClassProgression progressionClass in characterClassesProgression)
             {
-                if (progressionClass.characterClass != characterClass) continue;
+                var statLookupTable = new Dictionary<Stat, float[]>();
                 
                 foreach(ProgressionStat progressionStat in progressionClass.stats)
                 {
-                    if(progressionStat.stat != stat) continue;
-                    
-                    if(progressionStat.levels.Length < level) continue;
-
-                    return progressionStat.levels[level - 1];
-
+                    statLookupTable[progressionStat.stat] = progressionStat.levels;
                 }
+
+                lookupTable[progressionClass.characterClass] = statLookupTable;
             }
-            return 0;
         }
 
 

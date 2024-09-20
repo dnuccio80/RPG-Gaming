@@ -20,8 +20,8 @@ namespace RPG.Resources
             baseStats = GetComponent<BaseStats>();
             healthPoints = GetBaseHealthPoints();
             OnHealthUpdated?.Invoke(this, EventArgs.Empty);
-        }
 
+        }
 
         public void TakeDamage(GameObject instigator, float damage)
         {
@@ -47,7 +47,7 @@ namespace RPG.Resources
 
         public bool IsDead() => isDead;
         private float GetBaseHealthPoints() => baseStats.GetStat(Stat.Health);
-        public float GetPercentage() => Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints());
+        public float GetPercentage() => Mathf.Max(Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints()), 0);
       
 
     }
