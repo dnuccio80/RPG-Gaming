@@ -982,17 +982,17 @@ PrefabInstance:
     - target: {fileID: 7593771759426797880, guid: 5f9be3a98a0072349a7be01a3170b561,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 136.4983
+      value: 125.07831
       objectReference: {fileID: 0}
     - target: {fileID: 7593771759426797880, guid: 5f9be3a98a0072349a7be01a3170b561,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 176.50192
+      value: 173.60292
       objectReference: {fileID: 0}
     - target: {fileID: 7593771759426797880, guid: 5f9be3a98a0072349a7be01a3170b561,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 112.03937
+      value: 106.109375
       objectReference: {fileID: 0}
     - target: {fileID: 7593771759426797880, guid: 5f9be3a98a0072349a7be01a3170b561,
         type: 3}
@@ -1108,6 +1108,12 @@ PrefabInstance:
       propertyPath: startingLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8273223527409099725, guid: 324d13bb080ed50498be8f29658ab2c4,
+        type: 3}
+      propertyPath: levelUpGameObject
+      value: 
+      objectReference: {fileID: 3247394278538351082, guid: 9ca05d1ff98ed4541979fc76f7084008,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

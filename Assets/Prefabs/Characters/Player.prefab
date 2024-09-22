@@ -44,6 +44,12 @@ PrefabInstance:
       propertyPath: characterClass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8671809423702137864, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      propertyPath: levelUpGameObject
+      value: 
+      objectReference: {fileID: 3247394278538351082, guid: 9ca05d1ff98ed4541979fc76f7084008,
+        type: 3}
     - target: {fileID: 2471632842751085058, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
       propertyPath: m_Name
@@ -168,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f630eeedfe2553f47805cb3a7778379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experience: 0
 --- !u!114 &2404477024343371829
 MonoBehaviour:
   m_ObjectHideFlags: 0

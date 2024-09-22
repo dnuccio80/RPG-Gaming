@@ -5,23 +5,41 @@ namespace RPG.Stats
 {
     public class BaseStats : MonoBehaviour
     {
-
+        public event EventHandler OnLevelUp;
 
         [Range(1,99)]
         [SerializeField] private int startingLevel = 1;
         [SerializeField] private CharacterClass characterClass;
         [SerializeField] private ProgressionSO progressionSO;
+        [SerializeField] private GameObject levelUpGameObject;
 
+        private Experience experience;
         int currentLevel;
 
         private void Start()
         {
             currentLevel = GetLevel();
+            if (gameObject.CompareTag(Dictionary.PLAYER_TAG))
+            {
+                experience = GetComponent<Experience>();
+                experience.OnXpGained += Experience_OnXpGained;
+            }
+        }
+
+        private void Experience_OnXpGained(object sender, EventArgs e)
+        {
+            LevelUp();
         }
 
         public float GetStat(Stat stat)
         {
             return progressionSO.GetStat(stat, characterClass, GetLevel());
+        }
+
+        public float GetMaxLevel(Stat stat)
+        {
+            print(progressionSO.GetLevels(stat, characterClass));
+            return progressionSO.GetLevels(stat, characterClass);
         }
 
         public int GetLevel()
@@ -39,12 +57,21 @@ namespace RPG.Stats
                 float xpToLevelUp = progressionSO.GetStat(Stat.ExperienceToLevelUp, characterClass, level);
                 if(xpToLevelUp > currentXP)
                 {
-
                     return level;
                 }
             }
-
             return penultimateLevel + 1;
+
+        }
+
+        void LevelUp()
+        {
+            if (currentLevel < GetLevel()) 
+            {
+                currentLevel = GetLevel();
+                if(levelUpGameObject != null) Instantiate(levelUpGameObject, transform.position, Quaternion.identity, transform);
+                OnLevelUp?.Invoke(this, EventArgs.Empty);
+            }
 
         }
 

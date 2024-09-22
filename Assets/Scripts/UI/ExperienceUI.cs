@@ -14,6 +14,12 @@ public class ExperienceUI : MonoBehaviour
     {
         UpdateVisual();
         playerExperience.OnXpGained += PlayerExperience_OnXpGained;
+        baseStats.OnLevelUp += BaseStats_OnLevelUp;
+    }
+
+    private void BaseStats_OnLevelUp(object sender, System.EventArgs e)
+    {
+        print("Levelled Up!");
     }
 
     private void PlayerExperience_OnXpGained(object sender, System.EventArgs e)
