@@ -24,7 +24,7 @@ public class HealthUI : MonoBehaviour
 
     private void UpdateVisual()
     {
-        healthPlayerText.text = "Player Health: " + playerHealth.GetPercentage().ToString() + "%";
+        healthPlayerText.text = "Player Health: " + string.Format("{0:0}/{1:0}", playerHealth.GetHealthPoints(), playerHealth.GetMaxHealtPointsByLevel());
     }
 
     private void Update()
@@ -35,7 +35,7 @@ public class HealthUI : MonoBehaviour
             return;
         }
 
-        healthEnemyText.text = "Enemy Health: " + playerFighter.GetTargetHealth().GetPercentage().ToString() + "%";
+        healthEnemyText.text = "Enemy Health: " + string.Format("{0:0}/{1:0}", playerFighter.GetTargetHealth().GetHealthPoints(), playerFighter.GetTargetHealth().GetMaxHealtPointsByLevel());
 
     }
 

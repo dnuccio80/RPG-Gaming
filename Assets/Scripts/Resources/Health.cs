@@ -59,7 +59,9 @@ namespace RPG.Resources
 
         public bool IsDead() => isDead;
         private float GetBaseHealthPoints() => baseStats.GetStat(Stat.Health);
-        public float GetPercentage() => Mathf.Max(Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints()), 0);
+        public float GetHealthPoints() => healthPoints;
+        public float GetMaxHealtPointsByLevel() => GetBaseHealthPoints();
 
+        //public float GetPercentage() => Mathf.Max(Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints()), 0);
     }
 }
