@@ -54,17 +54,18 @@ namespace RPG.Combat
 
         }
 
-        public void LaunchProjectile(Transform handTransform, GameObject instigator, Transform target)
+        public void LaunchProjectile(Transform handTransform, GameObject instigator, Transform target, float damageMultiplier)
         {
             Projectile projectileInstance = Instantiate(projectile, handTransform.position, Quaternion.identity);
-            SetprojectileVariables(projectileInstance, target, instigator);
+            SetprojectileVariables(projectileInstance, target, instigator, damageMultiplier);
         }
 
-        private void SetprojectileVariables(Projectile projectile, Transform target, GameObject instigator)
+        private void SetprojectileVariables(Projectile projectile, Transform target, GameObject instigator, float damageMultiplier)
         {
             projectile.SetTarget(target);
             projectile.SetInstigator(instigator);
-            projectile.SetDamage(WeaponDamage);
+            float damage = WeaponDamage * damageMultiplier;
+            projectile.SetDamage(damage);
         }
 
 

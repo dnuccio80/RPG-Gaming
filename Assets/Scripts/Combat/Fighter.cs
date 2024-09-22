@@ -1,6 +1,7 @@
 using RPG.Core;
 using RPG.Movement;
 using RPG.Resources;
+using RPG.Stats;
 using System;
 using UnityEngine;
 
@@ -99,13 +100,16 @@ namespace RPG.Combat
         {
             if(targetTransform == null) return;
 
-            if(currentWeapon.HasProjectile())
+            float damageMultiplier = GetComponent<BaseStats>().GetStat(Stat.DamageMultiplier);
+
+            if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(GetHandTransform(currentWeapon), gameObject, targetTransform);
+                currentWeapon.LaunchProjectile(GetHandTransform(currentWeapon), gameObject, targetTransform, damageMultiplier);
             } else
             {
                 Health healthTarget = targetTransform.GetComponent<Health>();
-                healthTarget.TakeDamage(gameObject, currentWeapon.WeaponDamage);
+                float damage = currentWeapon.WeaponDamage * damageMultiplier;
+                healthTarget.TakeDamage(gameObject, damage);
             }            
         }
 
