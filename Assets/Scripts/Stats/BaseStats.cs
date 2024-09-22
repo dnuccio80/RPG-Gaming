@@ -66,14 +66,20 @@ namespace RPG.Stats
 
         void LevelUp()
         {
-            if (currentLevel < GetLevel()) 
+            if (currentLevel < GetLevel())
             {
                 currentLevel = GetLevel();
-                if(levelUpGameObject != null) Instantiate(levelUpGameObject, transform.position, Quaternion.identity, transform);
+                TryEmitLevelParticles();
                 OnLevelUp?.Invoke(this, EventArgs.Empty);
             }
 
         }
+
+        private void TryEmitLevelParticles()
+        {
+            if (levelUpGameObject != null) Instantiate(levelUpGameObject, transform.position, Quaternion.identity, transform);
+        }
+
 
     }
 }
