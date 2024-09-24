@@ -1,80 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2141796740606619114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3803139890652619484}
-  - component: {fileID: 8186684043851620135}
-  - component: {fileID: 6761865809694277892}
-  m_Layer: 5
-  m_Name: Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3803139890652619484
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141796740606619114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3409602536027631895}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -5}
-  m_SizeDelta: {x: 380, y: 170}
-  m_Pivot: {x: 0, y: 1}
---- !u!222 &8186684043851620135
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141796740606619114}
-  m_CullTransparentMesh: 1
---- !u!114 &6761865809694277892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141796740606619114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8156863}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2382483559835706537
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +353,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3803139890652619484}
   - {fileID: 2348128702442119562}
   - {fileID: 597867536134163033}
   m_Father: {fileID: 5476706528719895282}
@@ -1058,17 +982,17 @@ PrefabInstance:
     - target: {fileID: 7593771759426797880, guid: 5f9be3a98a0072349a7be01a3170b561,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 136.4983
+      value: 125.07831
       objectReference: {fileID: 0}
     - target: {fileID: 7593771759426797880, guid: 5f9be3a98a0072349a7be01a3170b561,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 176.50192
+      value: 173.60292
       objectReference: {fileID: 0}
     - target: {fileID: 7593771759426797880, guid: 5f9be3a98a0072349a7be01a3170b561,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 112.03937
+      value: 106.109375
       objectReference: {fileID: 0}
     - target: {fileID: 7593771759426797880, guid: 5f9be3a98a0072349a7be01a3170b561,
         type: 3}
@@ -1172,16 +1096,6 @@ PrefabInstance:
     - target: {fileID: 620030244966225111, guid: 324d13bb080ed50498be8f29658ab2c4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404477024343371829, guid: 324d13bb080ed50498be8f29658ab2c4,
-        type: 3}
-      propertyPath: cursorMappingArray.Array.data[2].cursorHotspot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404477024343371829, guid: 324d13bb080ed50498be8f29658ab2c4,
-        type: 3}
-      propertyPath: cursorMappingArray.Array.data[2].cursorHotspot.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6285599328398002743, guid: 324d13bb080ed50498be8f29658ab2c4,
