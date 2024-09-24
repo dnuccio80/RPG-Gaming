@@ -9,14 +9,6 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        enum CursorType
-        {
-            None,
-            Combat,
-            Movement,
-            UI,
-        }
-
         private Mover mover;
         private Fighter fighter;
         private Health health;
@@ -47,7 +39,6 @@ namespace RPG.Control
                 return;
             }
             if (InteractWithComponent()) return;
-            if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
 
             SetCursor(GetCursorType(CursorType.None));
@@ -77,34 +68,13 @@ namespace RPG.Control
                 {
                     if (raycastable.HandleRaycast(this))
                     {
-                        SetCursor(GetCursorType(CursorType.Combat));
+                        SetCursor(GetCursorType(raycastable.GetCursorType()));
                         return true;
                     }
                 }
             }
 
             return false;   
-        }
-
-        private bool InteractWithCombat()
-        {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-
-            foreach (RaycastHit hit in hits)
-            {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-
-                if (target == null || !fighter.CanAttackTarget(target.gameObject)) continue;
-
-                if (Input.GetMouseButton(0))
-                {
-                    fighter.Attack(target.gameObject);
-                }
-                SetCursor(GetCursorType(CursorType.Combat));
-                return true;
-            }
-
-            return false;
         }
 
         private bool InteractWithMovement()
