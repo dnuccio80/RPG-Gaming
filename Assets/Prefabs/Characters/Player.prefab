@@ -187,3 +187,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985d39155a476334f830db8a8fded961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorMappingArray:
+  - cursorType: 0
+    hotspot: {x: 0, y: 0}
+    cursorTexture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
+  - cursorType: 1
+    hotspot: {x: 0, y: 0}
+    cursorTexture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+  - cursorType: 2
+    hotspot: {x: 0, y: 0}
+    cursorTexture: {fileID: 2800000, guid: 44a99ee545fd8ba46a452b12c1f9378b, type: 3}
+  - cursorType: 3
+    hotspot: {x: 0, y: 0}
+    cursorTexture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
