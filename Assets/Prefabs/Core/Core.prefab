@@ -1182,7 +1182,7 @@ PrefabInstance:
     - target: {fileID: 2404477024343371829, guid: 324d13bb080ed50498be8f29658ab2c4,
         type: 3}
       propertyPath: cursorMappingArray.Array.data[2].cursorHotspot.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6285599328398002743, guid: 324d13bb080ed50498be8f29658ab2c4,
         type: 3}
