@@ -4,6 +4,7 @@ using RPG.Combat;
 using RPG.Resources;
 using System;
 using UnityEngine.EventSystems;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -88,24 +89,37 @@ namespace RPG.Control
             }
 
             Array.Sort(distances, hits);
+
             return hits;
         }
 
         private bool InteractWithMovement()
         {
-            RaycastHit hit;
-            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            Vector3 target;
+            bool hasHit = HitWithNavMesh(out target);
 
             if (hasHit)
             {
-                if (Input.GetMouseButton(0))
-                {
-                    mover.StartMoveAction(hit.point, 1f);
-                }
+                if (Input.GetMouseButton(0)) mover.StartMoveAction(target, 1f);
                 SetCursor(GetCursorType(CursorType.Movement));
                 return true;
             }
             return false;
+        }
+
+        private bool HitWithNavMesh(out Vector3 target)
+        {
+            target = new Vector3();
+            
+            RaycastHit hitWithNavmesh;
+            bool hasHitWithNavMesh = Physics.Raycast(GetMouseRay(), out hitWithNavmesh);
+
+            if (!hasHitWithNavMesh) return false;
+
+            NavMeshHit navMeshHit;
+            float maxDistance = .5f;
+            target = hitWithNavmesh.point;
+            return NavMesh.SamplePosition(hitWithNavmesh.point, out navMeshHit, maxDistance, NavMesh.AllAreas);
         }
 
         private CursorMapping GetCursorType(CursorType cursorType)
