@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archer
       objectReference: {fileID: 0}
+    - target: {fileID: 6466569036742432989, guid: 61e485a2f6c80564d82c7a462fcb362d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6504000041377044238, guid: 61e485a2f6c80564d82c7a462fcb362d,
         type: 3}
       propertyPath: health

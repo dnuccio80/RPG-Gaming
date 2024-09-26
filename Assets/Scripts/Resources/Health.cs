@@ -9,6 +9,12 @@ namespace RPG.Resources
     {
         public event EventHandler OnDead;
         public event EventHandler OnHealthUpdated;
+        public event EventHandler<OnDamageTakenEventArgs> OnDamageTaken;
+
+        public class OnDamageTakenEventArgs : EventArgs
+        {
+            public float Damage;
+        }
 
         [SerializeField] private float healthPoints = 100;
 
@@ -40,6 +46,11 @@ namespace RPG.Resources
             if(isDead) return;
             healthPoints = MathF.Max(healthPoints - damage, 0);
             OnHealthUpdated?.Invoke(this, EventArgs.Empty);
+            OnDamageTaken?.Invoke(this, new OnDamageTakenEventArgs
+            {
+                Damage = damage
+            });
+
             if (healthPoints == 0) Die(instigator);
         }
 
@@ -61,7 +72,6 @@ namespace RPG.Resources
         private float GetBaseHealthPoints() => baseStats.GetStat(Stat.Health);
         public float GetHealthPoints() => healthPoints;
         public float GetMaxHealtPointsByLevel() => GetBaseHealthPoints();
-
-        //public float GetPercentage() => Mathf.Max(Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints()), 0);
+        public float GetPercentage() => Mathf.Max(Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints()), 0); 
     }
 }
