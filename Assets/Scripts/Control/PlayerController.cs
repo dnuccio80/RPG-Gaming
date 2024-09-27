@@ -48,7 +48,6 @@ namespace RPG.Control
 
         }
 
-
         private bool InteractWithUI()
         {
             if (EventSystem.current.IsPointerOverGameObject())

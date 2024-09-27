@@ -29,11 +29,17 @@ namespace RPG.SceneManagement
 
         IEnumerator TransitionScene()
         {
+            gameObject.transform.SetParent(null);
+
             DontDestroyOnLoad(gameObject);
-            Fader fader = FindAnyObjectByType<Fader>();
+            
+            Fader fader = FindObjectOfType<Fader>();
             DisablePlayerController();
             yield return fader.FadeOut(0.5f);
+            // Save player Data
             yield return SceneManager.LoadSceneAsync(targetScene.ToString());
+            // Load Player Data
+            DisablePlayerController();
             Portal scenePortal = GetScenePortal();
             UpdatePlayer(scenePortal);
             yield return fader.FadeIn(0.5f);

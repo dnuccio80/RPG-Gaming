@@ -7,6 +7,7 @@ namespace RPG.SceneManagement
     {
 
         CanvasGroup canvasGroup;
+        Coroutine currectActiveCoroutine;
 
         private void Start()
         {
@@ -16,23 +17,30 @@ namespace RPG.SceneManagement
 
         public IEnumerator FadeOut(float time)
         {
-            while(canvasGroup.alpha < 1)
-            {
-                canvasGroup.alpha += Time.deltaTime / time;
-                yield return null;
-            }
+            return Fade(.5f, time);
         }
 
         public IEnumerator FadeIn(float time)
         {
-            while (canvasGroup.alpha > 0)
+            return Fade(0, time);
+        }
+
+        public IEnumerator Fade(float target, float time) 
+        {
+            if (currectActiveCoroutine != null) StopCoroutine(currectActiveCoroutine);
+
+            currectActiveCoroutine = StartCoroutine(FadeRoutine(target, time));
+            yield return currectActiveCoroutine;
+        }
+
+        private IEnumerator FadeRoutine(float target, float time)
+        {
+            while (!Mathf.Approximately(canvasGroup.alpha, target))
             {
-                canvasGroup.alpha -= Time.deltaTime / time;
+                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, target, Time.deltaTime/time);
                 yield return null;
             }
         }
-
-
 
     }
 }
