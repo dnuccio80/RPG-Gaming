@@ -18,4 +18,4 @@ MonoBehaviour:
   weaponPrefab: {fileID: 0}
   handType: 0
   projectile: {fileID: 0}
-  weaponSound: {fileID: 8300000, guid: b58fa8783b46ccf47bce520207b2454b, type: 3}
+  weaponSound: {fileID: 8300000, guid: 8c4a6d3173c94d04c9896a4afd752f69, type: 3}
