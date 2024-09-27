@@ -18,14 +18,16 @@ namespace RPG.Combat
         [SerializeField] private GameObject weaponPrefab;
         [SerializeField] private WeaponHandType handType;
         [SerializeField] private Projectile projectile;
-
+        [SerializeField] private AudioClip weaponSound;
 
         public float WeaponRange { get { return weaponRange; } }
         public float WeaponDamage { get { return weaponDamage; } }
         public AnimatorOverrideController AnimatorOverrideController { get { return weaponOverrideController; } }
         public GameObject WeaponPrefab { get {  return weaponPrefab; } }
         public WeaponHandType HandType { get { return handType; } }
+        public AudioClip WeaponSound {  get { return weaponSound; } }
         public bool HasProjectile() { return projectile != null; }
+
 
         public void Spawn(Transform handTransform, Animator animator)
         {

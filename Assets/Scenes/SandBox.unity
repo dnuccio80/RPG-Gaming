@@ -254,6 +254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archer (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5844747071413921535, guid: ef7c49fe8a0718b4cb9a05be43925a5c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8427991652792454917, guid: ef7c49fe8a0718b4cb9a05be43925a5c,
         type: 3}
       propertyPath: startingLevel
@@ -1314,6 +1319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Archer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844747071413921535, guid: ef7c49fe8a0718b4cb9a05be43925a5c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8427991652792454917, guid: ef7c49fe8a0718b4cb9a05be43925a5c,
         type: 3}
@@ -3542,6 +3552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Archer (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844747071413921535, guid: ef7c49fe8a0718b4cb9a05be43925a5c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8427991652792454917, guid: ef7c49fe8a0718b4cb9a05be43925a5c,
         type: 3}

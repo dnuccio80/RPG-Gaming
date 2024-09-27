@@ -22,11 +22,13 @@ namespace RPG.Combat
         private Mover mover;
         private float timeSinceLastAttack = Mathf.Infinity;
         private WeaponSO currentWeapon;
+        private AudioSource audioSource;
 
         private void Awake()
         {
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -105,9 +107,11 @@ namespace RPG.Combat
             if (currentWeapon.HasProjectile())
             {
                 currentWeapon.LaunchProjectile(GetHandTransform(currentWeapon), gameObject, targetTransform, damageMultiplier);
+                audioSource.PlayOneShot(currentWeapon.WeaponSound);
             } else
             {
                 Health healthTarget = targetTransform.GetComponent<Health>();
+                audioSource.PlayOneShot(currentWeapon.WeaponSound);
                 float damage = currentWeapon.WeaponDamage * damageMultiplier;
                 healthTarget.TakeDamage(gameObject, damage);
             }            

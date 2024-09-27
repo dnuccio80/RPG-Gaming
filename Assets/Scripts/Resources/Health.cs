@@ -46,12 +46,18 @@ namespace RPG.Resources
             if(isDead) return;
             healthPoints = MathF.Max(healthPoints - damage, 0);
             OnHealthUpdated?.Invoke(this, EventArgs.Empty);
+            
+            if (healthPoints == 0)
+            {
+                Die(instigator);
+                return;
+            } 
+
             OnDamageTaken?.Invoke(this, new OnDamageTakenEventArgs
             {
                 Damage = damage
             });
 
-            if (healthPoints == 0) Die(instigator);
         }
 
         private void Die(GameObject instigator)

@@ -208,6 +208,7 @@ MonoBehaviour:
     type: 3}
   isHoming: 0
   maxTimeLife: 10
+  explodeAudioClip: {fileID: 8300000, guid: c82b5c917dd599d42aabfb3c5875da2d, type: 3}
 --- !u!54 &3716208248420183013
 Rigidbody:
   m_ObjectHideFlags: 0

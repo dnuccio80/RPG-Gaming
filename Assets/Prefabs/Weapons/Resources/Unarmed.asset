@@ -16,3 +16,6 @@ MonoBehaviour:
   weaponDamage: 3
   weaponOverrideController: {fileID: 0}
   weaponPrefab: {fileID: 0}
+  handType: 0
+  projectile: {fileID: 0}
+  weaponSound: {fileID: 8300000, guid: b58fa8783b46ccf47bce520207b2454b, type: 3}
