@@ -74,6 +74,12 @@ namespace RPG.Resources
            
         }
 
+        public void IncrementHealth(float healthIncrement)
+        {
+            healthPoints = MathF.Min(healthPoints + healthIncrement, GetBaseHealthPoints());
+            OnHealthUpdated?.Invoke(this, EventArgs.Empty);
+        }
+
         public bool IsDead() => isDead;
         private float GetBaseHealthPoints() => baseStats.GetStat(Stat.Health);
         public float GetHealthPoints() => healthPoints;
