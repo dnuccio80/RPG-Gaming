@@ -135,10 +135,17 @@ namespace RPG.Combat
         {
             GetComponent<ActionScheduler>().StartAction(this);
             targetTransform = target.transform;
+
+            if(target.TryGetComponent(out CombatTarget combatTarget))
+            {
+                combatTarget.EnemyTargeted();
+            }
+
         }
 
         public void Cancel()
         {
+            if(targetTransform != null && targetTransform.TryGetComponent(out CombatTarget combatTarget)) combatTarget.EnemyNoTargeted();
             targetTransform = null;
             mover.Cancel();
             StopAttackTrigger();

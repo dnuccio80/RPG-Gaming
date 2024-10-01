@@ -194,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthImage: {fileID: 460665922558579382}
   health: {fileID: 6504000041377044238}
+  combatTarget: {fileID: 1141231970442995189}
 --- !u!114 &5958464206948459008
 MonoBehaviour:
   m_ObjectHideFlags: 0

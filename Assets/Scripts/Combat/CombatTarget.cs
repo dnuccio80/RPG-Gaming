@@ -1,5 +1,6 @@
 using RPG.Control;
 using RPG.Resources;
+using System;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -8,6 +9,9 @@ namespace RPG.Combat
     [RequireComponent(typeof(Health))]
     public class CombatTarget : MonoBehaviour, IRaycastable
     {
+
+        public event EventHandler OnTargeted;
+        public event EventHandler OnNoTargeted;
 
         public bool HandleRaycast(PlayerController callingController)
         {
@@ -21,6 +25,16 @@ namespace RPG.Combat
         public CursorType GetCursorType()
         {
             return CursorType.Combat;
+        }
+
+        public void EnemyTargeted()
+        {
+            OnTargeted?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void EnemyNoTargeted()
+        {
+            OnNoTargeted?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -12,7 +12,6 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         private Mover mover;
-        private Fighter fighter;
         private Health health;
 
         [Serializable]
@@ -30,7 +29,6 @@ namespace RPG.Control
         {
             mover = GetComponent<Mover>();
             health = GetComponent<Health>();
-            fighter = GetComponent<Fighter>();
         }
 
         private void Update()

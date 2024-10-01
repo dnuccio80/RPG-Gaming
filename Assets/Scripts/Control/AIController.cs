@@ -31,6 +31,8 @@ namespace RPG.Control
         private float waypointTolerance = 1f;
         private float timeInWaypoint;
         private bool AtPlace = false;
+        private float followPlayerDistance;
+        private float chaseDistanceExpanded;
 
         private void Awake()
         {
@@ -44,7 +46,15 @@ namespace RPG.Control
         private void Start()
         {
             health.OnDead += Health_OnDead;
+            health.OnDamageTaken += Health_OnDamageTaken;
             guardianPosition = transform.position;
+            chaseDistanceExpanded = chaseDistance * 4;
+            followPlayerDistance = chaseDistance;
+        }
+
+        private void Health_OnDamageTaken(object sender, Health.OnDamageTakenEventArgs e)
+        {
+            ExpandFollowDistance();
         }
 
         private void Health_OnDead(object sender, System.EventArgs e)
@@ -121,9 +131,22 @@ namespace RPG.Control
             fighter.Attack(player);
         }
 
+        private void ExpandFollowDistance()
+        {
+            if (followPlayerDistance == chaseDistanceExpanded) return;
+            float timeToExpand = 2f;
+            followPlayerDistance = chaseDistanceExpanded;
+            Invoke("ResetFollowDistance", timeToExpand);
+        }
+
+        private void ResetFollowDistance()
+        {
+            followPlayerDistance = chaseDistance;
+        }
+
         private bool InAttackRange(GameObject target)
         {
-            return Vector3.Distance(transform.position, target.transform.position) <= chaseDistance;
+            return Vector3.Distance(transform.position, target.transform.position) <= followPlayerDistance;
         }
 
         // Called by Unity
