@@ -16,12 +16,23 @@ public class HealthBarUI : MonoBehaviour
 
     private void Health_OnDead(object sender, System.EventArgs e)
     {
-        gameObject.SetActive(false);    
+        Hide();
     }
 
     private void Health_OnHealthUpdated(object sender, System.EventArgs e)
     {
         healthImage.fillAmount = health.GetPercentage() / 100f;
+    }
+
+    private void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void Hide()
+    {
+        gameObject.SetActive(false);
+
     }
 
 }
