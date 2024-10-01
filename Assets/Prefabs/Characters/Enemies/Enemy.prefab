@@ -364,6 +364,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471632842751085058, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471632842751085058, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -518,9 +523,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
+  followEnemyDistance: 5
   suspicionTime: 5
   patrolPath: {fileID: 0}
   waypointDwellTime: 3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
   patrolSpeedFraction: 0.2
 --- !u!114 &6504000041377044238 stripped
 MonoBehaviour:

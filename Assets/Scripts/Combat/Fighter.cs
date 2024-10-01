@@ -44,7 +44,7 @@ namespace RPG.Combat
             timeSinceLastAttack += Time.deltaTime;
             if (targetTransform == null || targetTransform.GetComponent<Health>().IsDead()) return;
 
-            if (!GetIsInRange()) mover.MoveTo(targetTransform.position, attackFractionSpeed);
+            if (!GetIsInRange(targetTransform)) mover.MoveTo(targetTransform.position, attackFractionSpeed);
             else
             {
                 mover.Cancel();
@@ -123,10 +123,12 @@ namespace RPG.Combat
             Hit();
         }
 
-        private bool GetIsInRange() => Vector3.Distance(transform.position, targetTransform.position) <= currentWeapon.WeaponRange;
+        private bool GetIsInRange(Transform targetTransform) => Vector3.Distance(transform.position, targetTransform.position) <= currentWeapon.WeaponRange;
         public bool CanAttackTarget(GameObject target)
         {
             if(target == null) return false;
+            if(!mover.CanMoveTo(target.transform.position) && !GetIsInRange(target.transform)) return false;
+
             Health targetHealth = target.transform.GetComponent<Health>();
             return targetHealth != null && !targetHealth.IsDead();
         }

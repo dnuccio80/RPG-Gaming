@@ -13,9 +13,11 @@ namespace RPG.Control
     {
 
         [SerializeField] private float chaseDistance = 5f;
+        [SerializeField] private float followNearbyTeammateDistance = 5f;
         [SerializeField] private float suspicionTime = 3f;
         [SerializeField] private PatrolPath patrolPath;
         [SerializeField] private float waypointDwellTime = 3f;
+        [SerializeField] private LayerMask enemyLayer;
         [Range(0,1)]
         [SerializeField] private float patrolSpeedFraction = 0.2f;
 
@@ -55,6 +57,7 @@ namespace RPG.Control
         private void Health_OnDamageTaken(object sender, Health.OnDamageTakenEventArgs e)
         {
             ExpandFollowDistance();
+            LookForNearbyTeammates();
         }
 
         private void Health_OnDead(object sender, System.EventArgs e)
@@ -123,7 +126,6 @@ namespace RPG.Control
         private void SuspicionState()
         {
             actionScheduler.CancelCurrentAction();
-
         }
 
         private void AttackBehaviour()
@@ -131,12 +133,24 @@ namespace RPG.Control
             fighter.Attack(player);
         }
 
-        private void ExpandFollowDistance()
+        public void ExpandFollowDistance()
         {
             if (followPlayerDistance == chaseDistanceExpanded) return;
             float timeToExpand = 2f;
             followPlayerDistance = chaseDistanceExpanded;
             Invoke("ResetFollowDistance", timeToExpand);
+        }
+
+        private void LookForNearbyTeammates()
+        {
+            Vector3 origin = transform.position;
+
+            RaycastHit[] hits = Physics.SphereCastAll(origin, followNearbyTeammateDistance, Vector3.up, followNearbyTeammateDistance, enemyLayer);
+
+            foreach(RaycastHit hit in hits)
+            {
+                hit.transform.GetComponent<AIController>().ExpandFollowDistance();
+            }
         }
 
         private void ResetFollowDistance()
