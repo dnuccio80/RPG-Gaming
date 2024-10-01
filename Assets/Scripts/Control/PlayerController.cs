@@ -23,7 +23,6 @@ namespace RPG.Control
         }
 
         [SerializeField] private CursorMapping[] cursorMappingArray;
-        [SerializeField] private float maxPathDistanceToMove;
 
         private void Awake()
         {
@@ -62,10 +61,13 @@ namespace RPG.Control
 
             foreach (RaycastHit hit in hits)
             {
-                IRaycastable[] raycastableArray = hit.transform.GetComponents<IRaycastable>();
+                if (!mover.CanMoveTo(hit.point)) return false;
 
-                foreach(IRaycastable raycastable in raycastableArray)
+                IRaycastable[] raycastableArray = hit.transform.GetComponents<IRaycastable>();
+                foreach (IRaycastable raycastable in raycastableArray)
                 {
+                    
+
                     if (raycastable.HandleRaycast(this))
                     {
                         SetCursor(GetCursorType(raycastable.GetCursorType()));
@@ -99,6 +101,8 @@ namespace RPG.Control
 
             if (hasHit)
             {
+                if (!mover.CanMoveTo(target)) return false;
+
                 if (Input.GetMouseButton(0)) mover.StartMoveAction(target, 1f);
                 SetCursor(GetCursorType(CursorType.Movement));
                 return true;
@@ -119,30 +123,10 @@ namespace RPG.Control
             float maxDistance = .5f;
             target = hitWithNavmesh.point;
 
-            NavMeshPath path = new NavMeshPath();
-            bool hasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
-
-            if(!hasPath) return false;
-            if (path.status != NavMeshPathStatus.PathComplete) return false;
-
-            if(GetPathDistance(path) > maxPathDistanceToMove) return false; 
-
             return NavMesh.SamplePosition(hitWithNavmesh.point, out navMeshHit, maxDistance, NavMesh.AllAreas);
         }
 
-        private float GetPathDistance(NavMeshPath path)
-        {
-            float total = 0;
 
-            if (path.corners.Length < 2) return total;
-
-            for (int i = 0; i < path.corners.Length -1 ; i++)
-            {
-                total += Vector3.Distance(path.corners[i], path.corners[i + 1]);
-            }
-
-            return total;
-        }
 
         private CursorMapping GetCursorType(CursorType cursorType)
         {

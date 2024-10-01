@@ -60,6 +60,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6801622041153706250, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      propertyPath: maxPathDistanceToMove
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 7658203337201266946, guid: 82cf609bd16d794428e25801b84757be,
         type: 3}
       propertyPath: weaponPrefab
@@ -203,4 +208,3 @@ MonoBehaviour:
   - cursorType: 3
     hotspot: {x: 0, y: 0}
     cursorTexture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
-  maxPathDistanceToMove: 20

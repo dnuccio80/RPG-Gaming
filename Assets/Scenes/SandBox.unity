@@ -23,8 +23,8 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.23429158, g: 0.36059698, b: 0.6132076, a: 1}
   m_AmbientEquatorColor: {r: 0.6037736, g: 0.5154562, b: 0.48131007, a: 1}
   m_AmbientGroundColor: {r: 0.31585974, g: 0.735849, b: 0.38937777, a: 1}
-  m_AmbientIntensity: 2
-  m_AmbientMode: 1
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: c82a334cf5a5e47978749c210cee72a7, type: 2}
   m_HaloStrength: 0.5
@@ -6348,6 +6348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008596437070417752, guid: 25a48e8a67b55fc4b9889d1b81cbf389,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
