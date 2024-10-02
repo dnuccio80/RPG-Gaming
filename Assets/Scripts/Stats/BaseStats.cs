@@ -22,11 +22,11 @@ namespace RPG.Stats
             if (gameObject.CompareTag(Dictionary.PLAYER_TAG))
             {
                 experience = GetComponent<Experience>();
-                experience.OnXpChanged += Experience_OnXpChanged;
+                experience.OnXpGained += Experience_OnXpGained;
             }
         }
 
-        private void Experience_OnXpChanged(object sender, EventArgs e)
+        private void Experience_OnXpGained(object sender, EventArgs e)
         {
             LevelUp();
         }
