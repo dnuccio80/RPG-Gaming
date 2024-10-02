@@ -13,7 +13,7 @@ public class ExperienceUI : MonoBehaviour
     private void Start()
     {
         UpdateVisual();
-        playerExperience.OnXpGained += PlayerExperience_OnXpGained;
+        playerExperience.OnXpChanged += PlayerExperience_OnXpGained;
         baseStats.OnLevelUp += BaseStats_OnLevelUp;
     }
 

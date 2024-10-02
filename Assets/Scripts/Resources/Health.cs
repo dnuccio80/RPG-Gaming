@@ -85,5 +85,12 @@ namespace RPG.Resources
         public float GetHealthPoints() => healthPoints;
         public float GetMaxHealtPointsByLevel() => GetBaseHealthPoints();
         public float GetPercentage() => Mathf.Max(Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints()), 0); 
+
+        // Used in LoadData
+        public void SetHealthPoints(float _healthPoints)
+        {
+            healthPoints = _healthPoints;
+            OnHealthUpdated?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
