@@ -161,6 +161,7 @@ namespace RPG.Combat
 
         public bool HasTarget() => targetTransform != null;
         public Health GetTargetHealth() => targetTransform.GetComponent<Health>();
+        public WeaponSO GetCurrentWeapon() => currentWeapon;
 
     }
 }

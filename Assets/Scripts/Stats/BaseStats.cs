@@ -28,7 +28,7 @@ namespace RPG.Stats
 
         private void Experience_OnXpGained(object sender, EventArgs e)
         {
-            LevelUp();
+            TryLevelUp();
         }
 
         public float GetStat(Stat stat)
@@ -64,7 +64,7 @@ namespace RPG.Stats
 
         }
 
-        void LevelUp()
+        void TryLevelUp()
         {
             if (currentLevel < GetLevel())
             {
