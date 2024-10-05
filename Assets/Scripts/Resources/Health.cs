@@ -75,6 +75,12 @@ namespace RPG.Resources
            
         }
 
+        // Used by EnemyData only
+        private void DestroyEnemyOnHierarchy()
+        {
+            Destroy(gameObject);
+        }
+
         public void IncrementHealth(float healthIncrement)
         {
             healthPoints = MathF.Min(healthPoints + healthIncrement, GetBaseHealthPoints());
@@ -99,7 +105,7 @@ namespace RPG.Resources
 
             if(loadedHealthPoints == 0)
             {
-                Die(gameObject);
+                DestroyEnemyOnHierarchy();
             }
 
             healthPoints = loadedHealthPoints;

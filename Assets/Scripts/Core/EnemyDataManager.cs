@@ -51,9 +51,6 @@ public class EnemyDataManager : MonoBehaviour
         {
             string jsonFromFile = File.ReadAllText(path);
             enemyDataDictionary = JsonConvert.DeserializeObject<Dictionary<string, float>>(jsonFromFile);
-        } else
-        {
-            Debug.Log("Nothing to load");
         }
     }
 
