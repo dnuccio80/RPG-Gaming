@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
+  maxPathDistanceToMove: 20
 --- !u!95 &6180747445897352590
 Animator:
   serializedVersion: 5
@@ -415,10 +416,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 677a588867b19234ba2e66c09d82ba28, type: 3}
   - {fileID: 8300000, guid: 1bf9ee80f2374534b80d6c5880558f5e, type: 3}
   - {fileID: 8300000, guid: 0a490d2ac2e526246ab488aed902f6f1, type: 3}
-  swordHitSound: {fileID: 8300000, guid: 379e40c9ee994864fa1cbcd90934c6a9, type: 3}
-  projectileHitSound: {fileID: 8300000, guid: 151fa7778dc9cf14ba998127d188283b, type: 3}
-  projectileLaunchedSound: {fileID: 8300000, guid: 3ab4b9bb431abca44a50195dd6f36e6b,
-    type: 3}
+  footSoundArray:
+  - {fileID: 8300000, guid: 87bc73e6e20571a41aa820e196ed8613, type: 3}
+  - {fileID: 8300000, guid: e6bd75993d16f594ea4bf60ed37e3ae2, type: 3}
+  - {fileID: 8300000, guid: 060bd266c3d6de74696a7e8cd14fa541, type: 3}
+  - {fileID: 8300000, guid: 841a5ea9e14047d489429ea2ba069182, type: 3}
 --- !u!1 &4648779892814452708
 GameObject:
   m_ObjectHideFlags: 0

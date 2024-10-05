@@ -491,6 +491,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8655211019147459510}
+    - targetCorrespondingSourceObject: {fileID: 2471632842751085058, guid: 82cf609bd16d794428e25801b84757be,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7500741961631757957}
   m_SourcePrefab: {fileID: 100100000, guid: 82cf609bd16d794428e25801b84757be, type: 3}
 --- !u!1 &2367489053306982456 stripped
 GameObject:
@@ -523,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
-  followEnemyDistance: 5
+  followNearbyTeammateDistance: 5
   suspicionTime: 5
   patrolPath: {fileID: 0}
   waypointDwellTime: 3
@@ -531,6 +535,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   patrolSpeedFraction: 0.2
+--- !u!114 &7500741961631757957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367489053306982456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6d8b69aa78e1b4b9e205d69067559c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: 
 --- !u!114 &6504000041377044238 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -2822389541958808268, guid: 82cf609bd16d794428e25801b84757be,

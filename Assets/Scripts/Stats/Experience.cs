@@ -17,5 +17,10 @@ namespace RPG.Stats
 
         public float GetExperience() => experience;
 
+        public void SetExperience(float _xp)
+        {
+            experience = _xp;
+            OnXpGained?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

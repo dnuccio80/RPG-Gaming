@@ -20,4 +20,4 @@ MonoBehaviour:
   handType: 0
   projectile: {fileID: 440077162262409099, guid: 3b305d488f82a7540ad59d9ecdadb340,
     type: 3}
-  weaponSound: {fileID: 8300000, guid: be04e3f4e348d08438b4ce2e92a586d2, type: 3}
+  weaponSound: {fileID: 8300000, guid: 151fa7778dc9cf14ba998127d188283b, type: 3}

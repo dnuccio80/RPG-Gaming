@@ -10,7 +10,6 @@ namespace RPG.Combat
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private bool isHoming;
         [SerializeField] private float maxTimeLife = 10f;
-        [SerializeField] private AudioClip explodeAudioClip;
 
         private float damage;
         private GameObject instigator;
@@ -66,7 +65,6 @@ namespace RPG.Combat
 
         private void ExplodeObject()
         {
-            AudioSource.PlayClipAtPoint(explodeAudioClip, transform.position);
             GameObject explosionGO = Instantiate(explosionPrefab, transform.position, transform.rotation);
             Destroy(explosionGO, 1f);
             Destroy(gameObject);

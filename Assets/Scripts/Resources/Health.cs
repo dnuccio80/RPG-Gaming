@@ -26,6 +26,7 @@ namespace RPG.Resources
             baseStats = GetComponent<BaseStats>();
             healthPoints = GetBaseHealthPoints();
             OnHealthUpdated?.Invoke(this, EventArgs.Empty);
+
             if (gameObject.CompareTag(Dictionary.PLAYER_TAG))
             {
                 baseStats.OnLevelUp += BaseStats_OnLevelUp;
@@ -85,5 +86,24 @@ namespace RPG.Resources
         public float GetHealthPoints() => healthPoints;
         public float GetMaxHealtPointsByLevel() => GetBaseHealthPoints();
         public float GetPercentage() => Mathf.Max(Mathf.RoundToInt(healthPoints * 100 / GetBaseHealthPoints()), 0); 
+
+        // Used by EnemyData only
+        public void SetHealthPoints(float loadedHealthPoints)
+        {
+            if (loadedHealthPoints == -1)
+            {
+                healthPoints = GetBaseHealthPoints();
+                OnHealthUpdated?.Invoke(this, EventArgs.Empty);
+                return;
+            }
+
+            if(loadedHealthPoints == 0)
+            {
+                Die(gameObject);
+            }
+
+            healthPoints = loadedHealthPoints;
+            OnHealthUpdated?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
