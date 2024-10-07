@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eb93d936dd91844cabc1dcad06e70e5, type: 3}
-  m_Name: Fireball
+  m_Name: Player Fireball
   m_EditorClassIdentifier: 
-  weaponRange: 20
+  weaponRange: 12
   weaponDamage: 8
   weaponOverrideController: {fileID: 22100000, guid: eaf517adfa256114f8889033fbe02253,
     type: 2}
   weaponPrefab: {fileID: 0}
   handType: 0
-  projectile: {fileID: 440077162262409099, guid: 3b305d488f82a7540ad59d9ecdadb340,
+  projectile: {fileID: 599238505698060240, guid: 34afda16f2032074c9f6224779f99c2e,
     type: 3}
   weaponSound: {fileID: 8300000, guid: 151fa7778dc9cf14ba998127d188283b, type: 3}

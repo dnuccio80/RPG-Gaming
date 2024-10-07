@@ -50,6 +50,7 @@ namespace RPG.Control
             health.OnDead += Health_OnDead;
             health.OnDamageTaken += Health_OnDamageTaken;
             guardianPosition = transform.position;
+            if(fighter.GetCurrentWeapon() != null) chaseDistance = fighter.GetCurrentWeapon().WeaponRange;
             chaseDistanceExpanded = chaseDistance * 4;
             followPlayerDistance = chaseDistance;
         }
